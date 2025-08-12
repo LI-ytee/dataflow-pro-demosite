@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataFlow Pro - Enterprise Analytics Platform</title>
+    <meta name="description" content="Enterprise-grade analytics and data management platform for modern businesses. Streamline your data operations with DataFlow Pro.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: #1a202c;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4299e1;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #4299e1;
+        }
+        
+        .cta-nav {
+            background: #4299e1;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        
+        .cta-nav:hover {
+            background: #3182ce;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #4299e1;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #3182ce;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #4299e1;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: #f7fafc;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d3748;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #4299e1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 0;
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d3748;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            border-color: #4299e1;
+            transform: translateY(-5px);
+        }
+        
+        .pricing-card.featured {
+            border-color: #4299e1;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #4299e1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-period {
+            color: #718096;
+            margin-bottom: 2rem;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .features-list li {
+            padding: 0.5rem 0;
+            color: #4a5568;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            color: #48bb78;
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+        
+        /* Demo Section */
+        .demo-section {
+            background: #f7fafc;
+            padding: 3rem 0;
+        }
+        
+        .demo-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .demo-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        
+        .demo-actions {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .demo-actions h3 {
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+        }
+        
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #2d3748;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #4299e1;
+        }
+        
+        /* Event Log */
+        .event-log {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        
+        #eventList {
+            background: #f7fafc;
+            border-radius: 6px;
+            padding: 1rem;
+            min-height: 200px;
+            border: 1px solid #e2e8f0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            overflow-y: auto;
+            max-height: 300px;
+        }
+        
+        .btn-danger {
+            background: #e53e3e;
+            color: white;
+            margin-top: 1rem;
+        }
+        
+        .btn-danger:hover {
+            background: #c53030;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #4299e1;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #a0aec0;
+            text-decoration: none;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #4299e1;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #2d3748;
+            padding-top: 1rem;
+            text-align: center;
+            color: #a0aec0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .demo-content { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+    
+    <!-- Google Tag Manager - Replace GTM-XXXXXXX with your actual container ID -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-XXXXXXX');
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">DataFlow Pro</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#" class="cta-nav" onclick="trackDemoRequest()">Request Demo</a>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Enterprise Data Analytics Platform</h1>
+            <p>Streamline your business intelligence operations with our comprehensive analytics suite. Real-time insights, automated reporting, and enterprise-grade security.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="trackFreeTrial()">Start Free Trial</button>
+                <button class="btn btn-secondary" onclick="trackDemoRequest()">Schedule Demo</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Why Choose DataFlow Pro?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Real-Time Analytics</h3>
+                    <p>Get instant insights from your data with our powerful real-time processing engine. Monitor KPIs and track performance as it happens.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-grade security with SOC 2 compliance, end-to-end encryption, and advanced access controls to protect your sensitive data.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>API Integration</h3>
+                    <p>Connect with over 200+ business tools and platforms. RESTful APIs and webhooks for seamless data synchronization.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Custom Dashboards</h3>
+                    <p>Build beautiful, interactive dashboards tailored to your business needs. Drag-and-drop interface with advanced visualization options.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered Insights</h3>
+                    <p>Leverage machine learning algorithms to discover hidden patterns and predict future trends in your business data.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Ready</h3>
+                    <p>Access your analytics on the go with our responsive mobile app. iOS and Android native applications available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$99</div>
+                    <div class="price-period">per month</div>
+                    <ul class="features-list">
+                        <li>Up to 10,000 events/month</li>
+                        <li>5 custom dashboards</li>
+                        <li>Basic integrations</li>
+                        <li>Email support</li>
+                        <li>30-day data retention</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="trackPlanSelection('starter')">Choose Plan</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3>Professional</h3>
+                    <div class="price">$299</div>
+                    <div class="price-period">per month</div>
+                    <ul class="features-list">
+                        <li>Up to 100,000 events/month</li>
+                        <li>Unlimited dashboards</li>
+                        <li>All integrations</li>
+                        <li>Priority support</li>
+                        <li>1-year data retention</li>
+                        <li>Advanced analytics</li>
+                        <li>API access</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="trackPlanSelection('professional')">Choose Plan</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <div class="price-period">pricing</div>
+                    <ul class="features-list">
+                        <li>Unlimited events</li>
+                        <li>Custom features</li>
+                        <li>White-label options</li>
+                        <li>Dedicated support</li>
+                        <li>Custom data retention</li>
+                        <li>On-premise deployment</li>
+                        <li>SLA guarantees</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="trackEnterpriseInquiry()">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="demo-content">
+                <div class="demo-text">
+                    <h2>Test Our Analytics Tracking</h2>
+                    <p>This section demonstrates various B2B user interactions and events that are commonly tracked in enterprise applications. Perfect for testing your Google Tag Manager server-side implementation.</p>
+                    <p>Use the buttons and forms below to generate different types of events and see how they flow through your analytics pipeline.</p>
+                </div>
+                
+                <div class="demo-actions">
+                    <h3>Interactive Demo</h3>
+                    <div class="action-grid">
+                        <button class="btn btn-primary" onclick="trackFeatureUsage()">Feature Usage</button>
+                        <button class="btn btn-primary" onclick="trackWhitepaper()">Download Whitepaper</button>
+                        <button class="btn btn-primary" onclick="trackWebinar()">Join Webinar</button>
+                        <button class="btn btn-primary" onclick="trackCaseStudy()">View Case Study</button>
+                        <button class="btn btn-primary" onclick="trackTrialSignup()">Trial Signup</button>
+                        <button class="btn btn-primary" onclick="trackSalesContact()">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lead Generation Forms -->
+            <div class="form-section">
+                <h3>Request Enterprise Demo</h3>
+                <form id="demoForm">
+                    <div class="form-group">
+                        <label for="companyName">Company Name:</label>
+                        <input type="text" id="companyName" value="Acme Corporation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobTitle">Job Title:</label>
+                        <input type="text" id="jobTitle" value="VP of Operations" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="companySize">Company Size:</label>
+                        <select id="companySize" required>
+                            <option value="1-50">1-50 employees</option>
+                            <option value="51-200">51-200 employees</option>
+                            <option value="201-1000">201-1000 employees</option>
+                            <option value="1000+">1000+ employees</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Industry:</label>
+                        <select id="industry" required>
+                            <option value="technology">Technology</option>
+                            <option value="finance">Finance</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="retail">Retail</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="trackDemoFormSubmission()">Request Demo</button>
+                </form>
+            </div>
+
+            <!-- Meeting Booking Form -->
+            <div class="form-section">
+                <h3>Schedule a Meeting</h3>
+                <p style="margin-bottom: 1.5rem; color: #4a5568;">Book a personalized consultation with our enterprise solutions team</p>
+                <form id="meetingForm">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="firstName">First Name:</label>
+                            <input type="text" id="firstName" value="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" id="lastName" value="Smith" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Business Email:</label>
+                        <input type="email" id="email" value="john.smith@acme.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" value="+1 (555) 123-4567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="meetingCompany">Company:</label>
+                        <input type="text" id="meetingCompany" value="Acme Corporation" required>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="meetingType">Meeting Type:</label>
+                            <select id="meetingType" required>
+                                <option value="product_demo">Product Demo</option>
+                                <option value="technical_consultation">Technical Consultation</option>
+                                <option value="pricing_discussion">Pricing Discussion</option>
+                                <option value="integration_planning">Integration Planning</option>
+                                <option value="roi_analysis">ROI Analysis</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferredTime">Preferred Time:</label>
+                            <select id="preferredTime" required>
+                                <option value="morning">Morning (9AM - 12PM)</option>
+                                <option value="afternoon">Afternoon (1PM - 5PM)</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="currentChallenges">Current Analytics Challenges:</label>
+                        <textarea id="currentChallenges" rows="3" style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 6px; font-size: 1rem; resize: vertical;" placeholder="Describe your current data challenges or what you hope to achieve...">Looking to improve our real-time reporting capabilities and data integration across multiple business systems.</textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="trackMeetingBooking()">Schedule Meeting</button>
+                </form>
+            </div>
+
+            <!-- Pricing Sheet Download -->
+            <div class="form-section">
+                <h3>Download Detailed Pricing Sheet</h3>
+                <p style="margin-bottom: 1.5rem; color: #4a5568;">Get comprehensive pricing information including enterprise features, volume discounts, and implementation costs.</p>
+                <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #4299e1;">
+                    <h4 style="margin-bottom: 0.5rem; color: #2d3748;">📄 What's Included:</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.25rem;">✓ Detailed feature comparison across all plans</li>
+                        <li style="margin-bottom: 0.25rem;">✓ Volume discount tiers and annual pricing</li>
+                        <li style="margin-bottom: 0.25rem;">✓ Implementation and onboarding costs</li>
+                        <li style="margin-bottom: 0.25rem;">✓ ROI calculator and business case template</li>
+                        <li style="margin-bottom: 0.25rem;">✓ Custom enterprise add-on pricing</li>
+                    </ul>
+                </div>
+                <form id="pricingForm">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="pricingFirstName">First Name:</label>
+                            <input type="text" id="pricingFirstName" value="Sarah" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pricingLastName">Last Name:</label>
+                            <input type="text" id="pricingLastName" value="Johnson" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pricingEmail">Business Email:</label>
+                        <input type="email" id="pricingEmail" value="sarah.johnson@company.com" required>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="pricingCompany">Company:</label>
+                            <input type="text" id="pricingCompany" value="Tech Solutions Inc" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pricingRole">Your Role:</label>
+                            <select id="pricingRole" required>
+                                <option value="cto">CTO</option>
+                                <option value="vp_engineering">VP Engineering</option>
+                                <option value="data_director">Director of Data</option>
+                                <option value="it_manager">IT Manager</option>
+                                <option value="business_analyst">Business Analyst</option>
+                                <option value="procurement">Procurement</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="expectedUsers">Expected Number of Users:</label>
+                        <select id="expectedUsers" required>
+                            <option value="1-10">1-10 users</option>
+                            <option value="11-50">11-50 users</option>
+                            <option value="51-100">51-100 users</option>
+                            <option value="101-500">101-500 users</option>
+                            <option value="500+">500+ users</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="timeline">Implementation Timeline:</label>
+                        <select id="timeline" required>
+                            <option value="immediate">Immediate (within 30 days)</option>
+                            <option value="1-3_months">1-3 months</option>
+                            <option value="3-6_months">3-6 months</option>
+                            <option value="6-12_months">6-12 months</option>
+                            <option value="evaluating">Still evaluating</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="trackPricingDownload()">Download Pricing Sheet</button>
+                </form>
+            </div>
+            
+            <!-- Event Log -->
+            <div class="event-log">
+                <h3>Analytics Event Log</h3>
+                <div id="eventList"></div>
+                <button class="btn btn-danger" onclick="clearEventLog()">Clear Log</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#" onclick="trackFooterClick('features')">Features</a></li>
+                        <li><a href="#" onclick="trackFooterClick('integrations')">Integrations</a></li>
+                        <li><a href="#" onclick="trackFooterClick('api')">API Documentation</a></li>
+                        <li><a href="#" onclick="trackFooterClick('security')">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#" onclick="trackFooterClick('analytics')">Business Analytics</a></li>
+                        <li><a href="#" onclick="trackFooterClick('reporting')">Automated Reporting</a></li>
+                        <li><a href="#" onclick="trackFooterClick('dashboards')">Executive Dashboards</a></li>
+                        <li><a href="#" onclick="trackFooterClick('ai')">AI Insights</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#" onclick="trackFooterClick('blog')">Blog</a></li>
+                        <li><a href="#" onclick="trackFooterClick('whitepapers')">Whitepapers</a></li>
+                        <li><a href="#" onclick="trackFooterClick('case-studies')">Case Studies</a></li>
+                        <li><a href="#" onclick="trackFooterClick('webinars')">Webinars</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#" onclick="trackFooterClick('help')">Help Center</a></li>
+                        <li><a href="#" onclick="trackFooterClick('contact')">Contact Us</a></li>
+                        <li><a href="#" onclick="trackFooterClick('status')">System Status</a></li>
+                        <li><a href="#" onclick="trackFooterClick('community')">Community</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DataFlow Pro. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Initialize dataLayer
+        window.dataLayer = window.dataLayer || [];
+        
+        // Helper function to log events
+        function logEvent(eventName, eventData) {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${eventName}:\n${JSON.stringify(eventData, null, 2)}\n\n`;
+            const eventList = document.getElementById('eventList');
+            eventList.textContent += logEntry;
+            eventList.scrollTop = eventList.scrollHeight;
+        }
+        
+        // B2B Specific Events
+        function trackFreeTrial() {
+            const eventData = {
+                event: 'free_trial_started',
+                trial_type: 'enterprise',
+                trial_duration: 30,
+                user_segment: 'enterprise_prospect',
+                value: 299,
+                currency: 'USD',
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Free Trial Started', eventData);
+        }
+        
+        function trackDemoRequest() {
+            const eventData = {
+                event: 'demo_requested',
+                demo_type: 'enterprise_demo',
+                lead_source: 'website',
+                lead_value: 1500,
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Demo Requested', eventData);
+        }
+        
+        function trackPlanSelection(planType) {
+            const planValues = {
+                'starter': 99,
+                'professional': 299,
+                'enterprise': 2000
+            };
+            
+            const eventData = {
+                event: 'plan_selected',
+                plan_type: planType,
+                plan_value: planValues[planType],
+                currency: 'USD',
+                billing_cycle: 'monthly',
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Plan Selected', eventData);
+        }
+        
+        function trackEnterpriseInquiry() {
+            const eventData = {
+                event: 'enterprise_inquiry',
+                inquiry_type: 'custom_pricing',
+                lead_score: 85,
+                expected_value: 50000,
+                currency: 'USD',
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Enterprise Inquiry', eventData);
+        }
+        
+        function trackFeatureUsage() {
+            const eventData = {
+                event: 'feature_interaction',
+                feature_name: 'real_time_analytics',
+                interaction_type: 'demo',
+                user_segment: 'trial_user',
+                engagement_level: 'high',
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Feature Usage', eventData);
+        }
+        
+        function trackWhitepaper() {
+            const eventData = {
+                event: 'content_download',
+                content_type: 'whitepaper',
+                content_title: 'Enterprise Analytics Best Practices',
+                lead_score_increase: 15,
+                content_category: 'thought_leadership',
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Whitepaper Download', eventData);
+        }
+        
+        function trackWebinar() {
+            const eventData = {
+                event: 'webinar_registration',
+                webinar_title: 'Advanced B2B Analytics Strategies',
+                webinar_date: '2024-09-15',
+                lead_score_increase: 25,
+                marketing_qualified: true,
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Webinar Registration', eventData);
+        }
+        
+        function trackCaseStudy() {
+            const eventData = {
+                event: 'case_study_viewed',
+                case_study_title: 'Fortune 500 Company Increases ROI by 300%',
+                industry: 'technology',
+                company_size: '1000+',
+                engagement_depth: 'full_read',
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Case Study Viewed', eventData);
+        }
+        
+        function trackTrialSignup() {
+            const eventData = {
+                event: 'trial_signup',
+                signup_method: 'website_form',
+                trial_tier: 'professional',
+                lead_source: 'organic',
+                conversion_value: 299,
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Trial Signup', eventData);
+        }
+        
+        function trackSalesContact() {
+            const eventData = {
+                event: 'sales_contact_request',
+                contact_method: 'form',
+                urgency: 'high',
+                budget_range: '10k-50k',
+                decision_timeline: '3_months',
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Sales Contact Request', eventData);
+        }
+        
+        function trackDemoFormSubmission() {
+            const companyName = document.getElementById('companyName').value;
+            const jobTitle = document.getElementById('jobTitle').value;
+            const companySize = document.getElementById('companySize').value;
+            const industry = document.getElementById('industry').value;
+            
+            const eventData = {
+                event: 'lead_generated',
+                form_type: 'demo_request',
+                company_name: companyName,
+                job_title: jobTitle,
+                company_size: companySize,
+                industry: industry,
+                lead_score: 75,
+                marketing_qualified: true,
+                expected_value: 15000,
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Demo Form Submission', eventData);
+        }
+        
+        function trackMeetingBooking() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('meetingCompany').value;
+            const meetingType = document.getElementById('meetingType').value;
+            const preferredTime = document.getElementById('preferredTime').value;
+            const challenges = document.getElementById('currentChallenges').value;
+            
+            // Calculate lead score based on meeting type
+            const leadScores = {
+                'product_demo': 60,
+                'technical_consultation': 80,
+                'pricing_discussion': 90,
+                'integration_planning': 85,
+                'roi_analysis': 95
+            };
+            
+            const expectedValues = {
+                'product_demo': 10000,
+                'technical_consultation': 25000,
+                'pricing_discussion': 50000,
+                'integration_planning': 40000,
+                'roi_analysis': 75000
+            };
+            
+            const eventData = {
+                event: 'meeting_scheduled',
+                form_type: 'meeting_booking',
+                contact_info: {
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                    phone: phone,
+                    company: company
+                },
+                meeting_details: {
+                    type: meetingType,
+                    preferred_time: preferredTime,
+                    challenges_mentioned: challenges.length > 50
+                },
+                lead_score: leadScores[meetingType] || 60,
+                sales_qualified: true,
+                expected_value: expectedValues[meetingType] || 10000,
+                currency: 'USD',
+                priority: meetingType === 'pricing_discussion' || meetingType === 'roi_analysis' ? 'high' : 'medium',
+                timestamp: Date.now()
+            };
+            
+            window.dataLayer.push(eventData);
+            logEvent('Meeting Booking', eventData);
+            
+            // Show success message
+            alert('Meeting request submitted! Our sales team will contact you within 24 hours to confirm your appointment.');
+        }
+        
+        function trackPricingDownload() {
+            const firstName = document.getElementById('pricingFirstName').value;
+            const lastName = document.getElementById('pricingLastName').value;
+            const email = document.getElementById('pricingEmail').value;
+            const company = document.getElementById('pricingCompany').value;
+            const role = document.getElementById('pricingRole').value;
+            const expectedUsers = document.getElementById('expectedUsers').value;
+            const timeline = document.getElementById('timeline').value;
+            
+            // Calculate lead score and expected value based on role and timeline
+            const roleScores = {
+                'cto': 95,
+                'vp_engineering': 90,
+                'data_director': 85,
+                'it_manager': 75,
+                'business_analyst': 65,
+                'procurement': 80,
+                'other': 50
+            };
+            
+            const timelineMultipliers = {
+                'immediate': 2.0,
+                '1-3_months': 1.5,
+                '3-6_months': 1.2,
+                '6-12_months': 1.0,
+                'evaluating': 0.5
+            };
+            
+            const userTierValues = {
+                '1-10': 5000,
+                '11-50': 15000,
+                '51-100': 35000,
+                '101-500': 75000,
+                '500+': 150000
+            };
+            
+            const baseScore = roleScores[role] || 50;
+            const timelineMultiplier = timelineMultipliers[timeline] || 1.0;
+            const expectedValue = (userTierValues[expectedUsers] || 5000) * timelineMultiplier;
+            
+            const eventData = {
+                event: 'pricing_download',
+                form_type: 'pricing_sheet_request',
+                contact_info: {
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                    company: company,
+                    role: role
+                },
+                business_context: {
+                    expected_users: expectedUsers,
+                    implementation_timeline: timeline,
+                    decision_maker_level: ['cto', 'vp_engineering', 'data_director'].includes(role) ? 'high' : 'medium'
+                },
+                content_details: {
+                    asset_type: 'pricing_sheet',
+                    asset_name: 'DataFlow Pro Enterprise Pricing Guide',
+                    download_triggered: true
+                },
+                lead_score: Math.round(baseScore * timelineMultiplier),
+                marketing_qualified: baseScore >= 75,
+                sales_qualified: timeline === 'immediate' && baseScore >= 80,
+                expected_value: Math.round(expectedValue),
+                currency: 'USD',
+                priority: timeline === 'immediate' ? 'high' : 'medium',
+                timestamp: Date.now()
+            };
+            
+            window.dataLayer.push(eventData);
+            logEvent('Pricing Sheet Download', eventData);
+            
+            // Simulate file download
+            setTimeout(() => {
+                // Create a simple downloadable content
+                const pricingContent = `DataFlow Pro - Enterprise Pricing Guide
+                
+Starter Plan: $99/month
+- Up to 10,000 events/month
+- 5 custom dashboards
+- Basic integrations
+- Email support
+
+Professional Plan: $299/month  
+- Up to 100,000 events/month
+- Unlimited dashboards
+- All integrations
+- Priority support
+- Advanced analytics
+
+Enterprise Plan: Custom Pricing
+- Unlimited events
+- Custom features
+- White-label options
+- Dedicated support
+- On-premise deployment
+
+Volume Discounts Available
+Annual Payment: 15% discount
+Multi-year contracts: Up to 25% discount
+
+Implementation Services
+Basic setup: $2,500
+Advanced integration: $7,500
+Custom development: $15,000+
+
+For detailed quote, contact: sales@dataflowpro.com`;
+                
+                const blob = new Blob([pricingContent], { type: 'text/plain' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'DataFlow_Pro_Pricing_Guide.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+                
+                alert('Pricing guide downloaded! Check your downloads folder.');
+            }, 1000);
+        }
+        
+        function trackFooterClick(section) {
+            const eventData = {
+                event: 'footer_navigation',
+                section: section,
+                user_engagement: 'exploring',
+                page_depth: 'footer',
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Footer Click', eventData);
+        }
+        
+        function clearEventLog() {
+            document.getElementById('eventList').textContent = '';
+        }
+        
+        // Page Load Event
+        window.addEventListener('load', function() {
+            const eventData = {
+                event: 'page_view',
+                page_title: document.title,
+                page_type: 'landing_page',
+                user_segment: 'b2b_prospect',
+                page_category: 'marketing',
+                timestamp: Date.now()
+            };
+            window.dataLayer.push(eventData);
+            logEvent('Page View', eventData);
+        });
+        
+        // Scroll Tracking
+        let scrollTracked = false;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            
+            if (!scrollTracked && scrollPercent > 50) {
+                scrollTracked = true;
+                const eventData = {
+                    event: 'scroll_engagement',
+                    scroll_depth: scrollPercent,
+                    engagement_level: 'high',
+                    content_interest: true,
+                    timestamp: Date.now()
+                };
+                window.dataLayer.push(eventData);
+                logEvent('Scroll Engagement', eventData);
+            }
+        });
+        
+        // Time on Page Tracking
+        let timeOnPageTracked = false;
+        setTimeout(function() {
+            if (!timeOnPageTracked) {
+                timeOnPageTracked = true;
+                const eventData = {
+                    event: 'time_on_page',
+                    duration_seconds: 30,
+                    engagement_quality: 'engaged',
+                    bounce_likelihood: 'low',
+                    timestamp: Date.now()
+                };
+                window.dataLayer.push(eventData);
+                logEvent('Time on Page - 30s', eventData);
+            }
+        }, 30000);
+    </script>
+</body>
+</html>
